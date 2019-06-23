@@ -1,6 +1,7 @@
-# Deep Q-Learning with Pytorch
+# Pytorch를 사용한 딥 Q 러닝
 
 The implementation of Deep Q Learning with Pytorch. 
+Pytorch로 딥 Q 러닝 구현하기. 
 
 * Replay Memory 
 * Simple Deep Q Learning (not using A3C or Dueling) 
@@ -10,13 +11,22 @@ The implementation of Deep Q Learning with Pytorch.
 * Target Network (for stability when training)
 * Python 3.x (I used Python 3.6)
 
+* Replay Memory 
+* (A3C나 Dueling을 사용하지 않는) 간단한 딥 Q 러닝 
+* Support for original DQN (the paper in Nature published by DeepMind) and LSTM-based DQN
+* Pytorch 사용
+* Frame Skipping 
+* Target Network (for stability when training)
+* 파이썬 3.x (I used Python 3.6)
+
 ### DQN Algorithm
 The linked article explains how DQN works in detail.<br>
+다음 링크에 DQN이 어떻게 동작하는지 자세히 설명합니다. 
 [http://andersonjo.github.io/artificial-intelligence/2017/06/03/Deep-Reinforcement-Learning/](http://andersonjo.github.io/artificial-intelligence/2017/06/03/Deep-Reinforcement-Learning/)
 
-### Actual Playing game
+### Actual Playing game 실제 게임 실행
 The below image is actual result of the code here. 
-
+여기 있는 코드를 돌리면 다음과 같은 결과물이 나옵니다. 
 ![alt text](./images/flappybird.gif?raw=true)
 
 [![Watch the video](http://img.youtube.com/vi/MkE6bnK7_DE/0.jpg)](https://youtu.be/MkE6bnK7_DE)
@@ -24,11 +34,11 @@ The below image is actual result of the code here.
 [![Snake Game](https://img.youtube.com/vi/cBxXIII4qRM/0.jpg)](https://www.youtube.com/watch?v=cBxXIII4qRM)
 
 
-# Installation
+# 설치하기
 
 Requirements 
 
-1. Python 3
+1. 파이썬 3
 2. Pytorch 
 3. TorchVision
 4. gym
@@ -37,13 +47,13 @@ Requirements
 7. ffmpeg (optional. if you want to record the gameplay)
 
 
-Install PyGame
+PyGame 설치하기
 
 ```
 sudo pip3 install pygame
 ```
 
-Install PyGame-Learning-Environment
+PyGame-Learning-Environment 설치하기
 
 ```
 git clone https://github.com/ntasfi/PyGame-Learning-Environment.git
@@ -51,27 +61,29 @@ cd PyGame-Learning-Environment/
 sudo pip3 install -e .
 ```
 
-Install Gym-Ple
+Gym-Ple 설치하기
 
 ```
 git clone https://github.com/lusob/gym-ple.git
 cd gym-ple/
 sudo pip3 install -e .
 ```
-## Comparison
+## 비교 
 
-| Algorithm | Game | Best Score | 
+| 알고리즘 | 게임 | 최고 점수 | 
 |:----------|:-----|:-----------|
 | DQN       | FlappyBird | 65   |
 | LSTM-based DQN | FlappyBird | 83 |
 
 * Best Score is the average value of 10 times of games. 
+* 최고 점수는 게임을 10번 한 후 구한 평균값입니다. 
 
-# How to use
+# How to use 사용법
 
-## Training
+## Training 학습하기
 
 Before training, you need to make a "dqn_checkpoints" directory for saving model automatically. 
+학습하기 전에, 모델을 자동 저장하기 위해서는 "dqn_checkpoints"라는 디렉토리를 생성해야합니다. 
 
 ```
 mkdir dqn_checkpoints
@@ -85,11 +97,14 @@ mkdir dqn_checkpoints
 python3 dqn.py --mode=train --model=lstm
 ```
 
-## Playing 
+## Playing 게임하기
 
 It automatically loads the latest checkpoint (it loads saved model parameters). <br>
+자동적으로 가장 최근 체크포인트를 로드합니다. 
 But first, you need to train it.<br>
+하지만 우선 모델을 학습시켜야합니다. 
 If there is no checkpoint (You might have not trained it yet), the play is just simply random walk. 
+만약 체크포인트가 없다면, 게임은 무작위로 실생됩니다
 
 ```
 python3 dqn.py --mode=play
@@ -101,15 +116,16 @@ playing LSTM-based DQN is like..
 python3 dqn.py --mode=play --model=lstm
 ```
 
-## Recoding
+## Recoding 녹화하기
 
 If you want to record game play, just do like this. 
+게임 실행을 녹화하고 싶다면, 다음과 같이 실행하세요.
 
 ```
 python3 dqn.py --mode=play --record 
 ```
 
-## How to convert video to GIF file
+## 영상을 GIF 파일로 전환하는 법
 
 ```
 mkdir frames
