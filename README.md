@@ -15,7 +15,7 @@ Pytorch로 딥 Q-러닝 구현하기.
 [http://andersonjo.github.io/artificial-intelligence/2017/06/03/Deep-Reinforcement-Learning/](http://andersonjo.github.io/artificial-intelligence/2017/06/03/Deep-Reinforcement-Learning/)
 
 ### 실제 게임 실행 
-여기 있는 코드를 실행하면 다음 그림과 같은 결과물이 나옵니다. 
+여기 있는 코드를 실행하면 다음 그림과 같은 결과물이 나옵니다.  <br>
 ![alt text](./images/flappybird.gif?raw=true)
 
 [![Watch the video](http://img.youtube.com/vi/MkE6bnK7_DE/0.jpg)](https://youtu.be/MkE6bnK7_DE)
