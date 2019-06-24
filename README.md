@@ -4,14 +4,6 @@ The implementation of Deep Q Learning with Pytorch.
 Pytorch로 딥 Q 러닝 구현하기. 
 
 * Replay Memory 
-* Simple Deep Q Learning (not using A3C or Dueling) 
-* Support for original DQN (the paper in Nature published by DeepMind) and LSTM-based DQN
-* Used Pytorch
-* Frame Skipping 
-* Target Network (for stability when training)
-* Python 3.x (I used Python 3.6)
-
-* Replay Memory 
 * (A3C나 Dueling을 사용하지 않는) 간단한 딥 Q 러닝 
 * Support for original DQN (the paper in Nature published by DeepMind) and LSTM-based DQN
 * Pytorch 사용
@@ -34,7 +26,7 @@ The below image is actual result of the code here.
 [![Snake Game](https://img.youtube.com/vi/cBxXIII4qRM/0.jpg)](https://www.youtube.com/watch?v=cBxXIII4qRM)
 
 
-# 설치하기
+# 설치
 
 Requirements 
 
@@ -43,8 +35,8 @@ Requirements
 3. TorchVision
 4. gym
 5. opencv2 
-6. Scipy
-7. ffmpeg (optional. if you want to record the gameplay)
+6. Scipy 
+7. ffmpeg (선택 사항. 게임 실행을 녹화하기 위해 필요함)
 
 
 PyGame 설치하기
@@ -53,7 +45,7 @@ PyGame 설치하기
 sudo pip3 install pygame
 ```
 
-PyGame-Learning-Environment 설치하기
+PyGame-Learning-Environment (PyGame 학습 환경) 설치하기
 
 ```
 git clone https://github.com/ntasfi/PyGame-Learning-Environment.git
@@ -125,7 +117,7 @@ If you want to record game play, just do like this.
 python3 dqn.py --mode=play --record 
 ```
 
-## 영상을 GIF 파일로 전환하는 법
+## 영상을 GIF 파일로 전환하기
 
 ```
 mkdir frames
@@ -134,7 +126,8 @@ cd frames
 convert -delay 4 -loop 0 *.jpg flappybird.gif
 ```
 
-FFMpeg and Imagemagic(Convert command) have the following options. 
+FFMpeg and Imagemagic(Convert command) have the following options.
+FFMpegImagemagic(변환 명령어)에는 다음과 같은 실행 옵션이 있습니다.
 
 ```
 -r 5 stands for FPS value
