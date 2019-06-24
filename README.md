@@ -1,24 +1,21 @@
-# Pytorch를 사용한 딥 Q 러닝
+# Pytorch를 사용한 딥 Q-러닝
 
-The implementation of Deep Q Learning with Pytorch. 
-Pytorch로 딥 Q 러닝 구현하기. 
+Pytorch로 딥 Q-러닝 구현하기. 
 
-* Replay Memory 
-* (A3C나 Dueling을 사용하지 않는) 간단한 딥 Q 러닝 
-* Support for original DQN (the paper in Nature published by DeepMind) and LSTM-based DQN
+* 재생 메모리
+* (A3C나 Dueling을 사용하지 않는) 간단한 딥 Q-러닝 
+* (디마인드에서 네이처지에 출판한 논문의) DQN 과 LSTM을 사용한 DQN 지원
 * Pytorch 사용
-* Frame Skipping 
-* Target Network (for stability when training)
+* 프레임 스키핑 
+* Target Network (학습할 때 안정성을 위한) 
 * 파이썬 3.x (I used Python 3.6)
 
-### DQN Algorithm
-The linked article explains how DQN works in detail.<br>
-다음 링크에 DQN이 어떻게 동작하는지 자세히 설명합니다. 
+### DQN 알고리즘 
+다음 글에 DQN이 어떻게 동작하는지 자세히 설명되어 있습니다. <br>
 [http://andersonjo.github.io/artificial-intelligence/2017/06/03/Deep-Reinforcement-Learning/](http://andersonjo.github.io/artificial-intelligence/2017/06/03/Deep-Reinforcement-Learning/)
 
-### Actual Playing game 실제 게임 실행
-The below image is actual result of the code here. 
-여기 있는 코드를 돌리면 다음과 같은 결과물이 나옵니다. 
+### 실제 게임 실행 
+여기 있는 코드를 실행하면 다음 그림과 같은 결과물이 나옵니다. 
 ![alt text](./images/flappybird.gif?raw=true)
 
 [![Watch the video](http://img.youtube.com/vi/MkE6bnK7_DE/0.jpg)](https://youtu.be/MkE6bnK7_DE)
@@ -28,7 +25,7 @@ The below image is actual result of the code here.
 
 # 설치
 
-Requirements 
+필요 조건: 
 
 1. 파이썬 3
 2. Pytorch 
@@ -65,53 +62,47 @@ sudo pip3 install -e .
 | 알고리즘 | 게임 | 최고 점수 | 
 |:----------|:-----|:-----------|
 | DQN       | FlappyBird | 65   |
-| LSTM-based DQN | FlappyBird | 83 |
+| LSTM을 사용한 DQN | FlappyBird | 83 |
 
-* Best Score is the average value of 10 times of games. 
-* 최고 점수는 게임을 10번 한 후 구한 평균값입니다. 
+* 최고 점수는 게임을 10번 실행한 한 후 구한 평균값입니다. 
 
-# How to use 사용법
+# 사용법
 
-## Training 학습하기
+## 학습하기
 
-Before training, you need to make a "dqn_checkpoints" directory for saving model automatically. 
-학습하기 전에, 모델을 자동 저장하기 위해서는 "dqn_checkpoints"라는 디렉토리를 생성해야합니다. 
+학습하기 전, 모델을 자동 저장하기 위해서 "dqn_checkpoints"라는 디렉토리를 생성해야합니다. 
 
 ```
 mkdir dqn_checkpoints
 python3 dqn.py --mode=train
 ```
 
-Training LSTM-based DQN
+LSTM을 사용한 DQN으로 학습하기 
 
 ```
 mkdir dqn_checkpoints
 python3 dqn.py --mode=train --model=lstm
 ```
 
-## Playing 게임하기
+## 게임하기
 
-It automatically loads the latest checkpoint (it loads saved model parameters). <br>
-자동적으로 가장 최근 체크포인트를 로드합니다. 
-But first, you need to train it.<br>
-하지만 우선 모델을 학습시켜야합니다. 
-If there is no checkpoint (You might have not trained it yet), the play is just simply random walk. 
-만약 체크포인트가 없다면, 게임은 무작위로 실생됩니다
+자동적으로 가장 최근 체크포인트를 로드합니다. (저장된 모델의 매개 변수를 로드해옵니다.) <br>
+우선, 학습시킨 모델이 있어야 합니다. <br>
+만약 (아직 모델을 학습시키지 않아) 체크포인트가 없다면, 게임은 무작위식으로 실행됩니다.
 
 ```
 python3 dqn.py --mode=play
 ```
 
-playing LSTM-based DQN is like.. 
+LSTM을 사용한 DQN으로 게임하기 
 
 ```
 python3 dqn.py --mode=play --model=lstm
 ```
 
-## Recoding 녹화하기
+## 녹화하기
 
-If you want to record game play, just do like this. 
-게임 실행을 녹화하고 싶다면, 다음과 같이 실행하세요.
+게임 실행을 녹화하려면 다음과 같이 실행하세요.
 
 ```
 python3 dqn.py --mode=play --record 
@@ -126,8 +117,7 @@ cd frames
 convert -delay 4 -loop 0 *.jpg flappybird.gif
 ```
 
-FFMpeg and Imagemagic(Convert command) have the following options.
-FFMpegImagemagic(변환 명령어)에는 다음과 같은 실행 옵션이 있습니다.
+FFMpeg와 Imagemagic(변환 명령어)에는 다음과 같은 실행 옵션이 있습니다.
 
 ```
 -r 5 stands for FPS value
