@@ -2,9 +2,9 @@
 
 Pytorch로 딥 Q-러닝 구현하기. 
 
-* 재생 메모리
-* (A3C나 Dueling을 사용하지 않는) 간단한 딥 Q-러닝 
-* (디마인드가 네이처지에 출판한 버전의) 가장 기본적인 DQN 과 LSTM을 사용한 DQN 지원
+* 리플레이 메모리
+* (A3C나 듀얼링을 사용하지 않는) 간단한 딥 Q-러닝 
+* 기본 DQN (딥마인드가 네이처지에 출판한 버전)과 LSTM 기반 DQN 지원
 * Pytorch 사용
 * 프레임 스키핑 
 * (학습 시 안정성을 위한) 타깃 네트워크 
@@ -94,7 +94,7 @@ python3 dqn.py --mode=train --model=lstm
 python3 dqn.py --mode=play
 ```
 
-LSTM을 사용한 DQN으로 게임하기 
+LSTM 기반 DQN으로 게임하기 
 
 ```
 python3 dqn.py --mode=play --model=lstm
